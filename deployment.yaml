@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: java-aks-demo
+
+spec:
+  replicas: 2
+
+  selector:
+    matchLabels:
+      app: java-aks-demo
+
+  template:
+    metadata:
+      labels:
+        app: java-aks-demo
+
+    spec:
+      containers:
+        - name: java-aks-demo
+
+          image: devaksacr001.azurecr.io/java-aks-demo:v1
+
+          ports:
+            - containerPort: 8080
